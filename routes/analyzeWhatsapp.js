@@ -148,7 +148,7 @@ JSON Array Format:
       let jsonString = aiResponse.trim();
 
       // Remove any code fences or extraneous text
-      jsonString = jsonString.replace(/```json/g, "").replace(/```/g, "").trim();
+      jsonString = jsonString.replace("```json", "").replace(/```/g, "").trim();
 
       // Extract JSON content
       const jsonStart = jsonString.indexOf("[");
