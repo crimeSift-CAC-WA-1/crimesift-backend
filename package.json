@@ -4,7 +4,7 @@
   "description": "Backend for CrimeSift using Node.js and Fastify",
   "main": "server.js",
   "scripts": {
-    "start": "fastify start -l info -P server.js -p 3010",
+    "start": "fastify start -l info -P server.js -p $PORT",
     "dev": "fastify start -l info -w -P server.js -p 3010"
   },
   "type": "commonjs",

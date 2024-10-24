@@ -1,0 +1,27 @@
+{"level":"info","time":"2024-10-24T09:35:01.000Z","pid":77872,"hostname":"varram-pc","msg":"Received /analyzeWhatsapp request"}
+{"level":"debug","time":"2024-10-24T09:35:01.004Z","pid":77872,"hostname":"varram-pc","msg":"Timestamp: 1729762500, Prompt: [REDACTED]"}
+{"level":"info","time":"2024-10-24T09:35:01.008Z","pid":77872,"hostname":"varram-pc","msg":"File saved to C:\\Users\\varsh\\Downloads\\code\\cac\\newbackend\\uploads\\1729762501004__chat.txt"}
+{"level":"debug","time":"2024-10-24T09:35:01.016Z","pid":77872,"hostname":"varram-pc","msg":"Chat data size: 816478 bytes"}
+{"level":"error","time":"2024-10-24T09:35:01.016Z","pid":77872,"hostname":"varram-pc","msg":"Error in /analyzeWhatsapp:"}
+{"level":"debug","time":"2024-10-24T09:35:01.016Z","pid":77872,"hostname":"varram-pc","msg":"Error Details:"}
+{"level":"info","time":"2024-10-24T09:35:19.590Z","pid":84832,"hostname":"varram-pc","msg":"Received /analyzeWhatsapp request"}
+{"level":"debug","time":"2024-10-24T09:35:19.595Z","pid":84832,"hostname":"varram-pc","msg":"Timestamp: 1729762519, Prompt: [REDACTED]"}
+{"level":"info","time":"2024-10-24T09:35:19.599Z","pid":84832,"hostname":"varram-pc","msg":"File saved to C:\\Users\\varsh\\Downloads\\code\\cac\\newbackend\\uploads\\1729762519595__chat.txt"}
+{"level":"debug","time":"2024-10-24T09:35:19.607Z","pid":84832,"hostname":"varram-pc","msg":"Chat data size: 816478 bytes"}
+{"level":"error","time":"2024-10-24T09:35:19.607Z","pid":84832,"hostname":"varram-pc","msg":"Error in /analyzeWhatsapp:"}
+{"level":"debug","time":"2024-10-24T09:35:19.607Z","pid":84832,"hostname":"varram-pc","msg":"Error Details:"}
+{"level":"info","time":"2024-10-24T09:35:42.584Z","pid":2484,"hostname":"varram-pc","msg":"Received /analyzeWhatsapp request"}
+{"level":"debug","time":"2024-10-24T09:35:42.587Z","pid":2484,"hostname":"varram-pc","msg":"Timestamp: 1729762542, Prompt: [REDACTED]"}
+{"level":"info","time":"2024-10-24T09:35:42.591Z","pid":2484,"hostname":"varram-pc","msg":"File saved to C:\\Users\\varsh\\Downloads\\code\\cac\\newbackend\\uploads\\1729762542587__chat.txt"}
+{"level":"debug","time":"2024-10-24T09:35:42.599Z","pid":2484,"hostname":"varram-pc","msg":"Chat data size: 816478 bytes"}
+{"level":"error","time":"2024-10-24T09:35:42.599Z","pid":2484,"hostname":"varram-pc","msg":"Error in /analyzeWhatsapp:"}
+{"level":"debug","time":"2024-10-24T09:35:42.599Z","pid":2484,"hostname":"varram-pc","msg":"Error Details:"}
+{"level":"info","time":"2024-10-24T09:36:05.538Z","pid":68128,"hostname":"varram-pc","msg":"Received /analyzeWhatsapp request"}
+{"level":"debug","time":"2024-10-24T09:36:05.541Z","pid":68128,"hostname":"varram-pc","msg":"Timestamp: 1729762565, Prompt: find 10 instances of bullying"}
+{"level":"info","time":"2024-10-24T09:36:05.545Z","pid":68128,"hostname":"varram-pc","msg":"File saved to C:\\Users\\varsh\\Downloads\\code\\cac\\newbackend\\uploads\\1729762565541__chat.txt"}
+{"level":"debug","time":"2024-10-24T09:36:05.553Z","pid":68128,"hostname":"varram-pc","msg":"Chat data length: 762116"}
+{"level":"info","time":"2024-10-24T09:36:05.553Z","pid":68128,"hostname":"varram-pc","msg":"Initializing AI model"}
+{"level":"info","time":"2024-10-24T09:36:05.553Z","pid":68128,"hostname":"varram-pc","msg":"AI model initialized"}
+{"level":"info","time":"2024-10-24T09:36:05.553Z","pid":68128,"hostname":"varram-pc","msg":"Uploading file to AI: C:\\Users\\varsh\\Downloads\\code\\cac\\newbackend\\uploads\\1729762565541__chat.txt"}
+{"level":"info","time":"2024-10-24T09:36:06.460Z","pid":68128,"hostname":"varram-pc","msg":"File uploaded: https://generativelanguage.googleapis.com/v1beta/files/h6b56w3qi2ab"}
+{"level":"info","time":"2024-10-24T09:36:06.460Z","pid":68128,"hostname":"varram-pc","msg":"File uploaded to AI: https://generativelanguage.googleapis.com/v1beta/files/h6b56w3qi2ab"}

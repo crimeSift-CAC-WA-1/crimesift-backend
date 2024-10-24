@@ -105,7 +105,7 @@ JSON Array Format:
 
 - Do **NOT** include any Markdown formatting, code fences (like \`\`\`), or additional explanations.
 - **ONLY OUTPUT THE JSON ARRAY.**
-- **Make sure you output proper JSON format.**
+- **MAKE SURE TO PORPERLY ESCAPE DOUBLE QUOTES IN YOUR JSON STRINGS WITH A \\\".**
 
 `;
 
@@ -181,6 +181,19 @@ JSON Array Format:
       // Clean up local file
       fs.unlinkSync(chatFilePath);
       logger.info("Temporary file deleted");
+
+      // Clear all files in ../uploads
+      const directory = path.join(__dirname, "../uploads");
+      fs.readdir(directory, (err, files) => {
+        if (err) throw err;
+
+        for (const file of files) {
+          fs.unlink(path.join(directory, file), (err) => {
+            if (err) throw err;
+          });
+        }
+      });
+
 
       // Send response
       reply.send(analysisResults);

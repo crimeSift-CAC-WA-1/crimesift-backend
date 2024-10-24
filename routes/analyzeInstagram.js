@@ -219,6 +219,18 @@ JSON Array Format:
       fs.unlinkSync(txtFilePath);
       logger.info("Temporary files deleted");
 
+      // Clear all files in ../uploads
+      const directory = path.join(__dirname, "../uploads");
+      fs.readdir(directory, (err, files) => {
+        if (err) throw err;
+
+        for (const file of files) {
+          fs.unlink(path.join(directory, file), (err) => {
+            if (err) throw err;
+          });
+        }
+      });
+
       // Send response
       reply.send(analysisResults);
     } catch (error) {
