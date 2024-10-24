@@ -11,7 +11,6 @@ module.exports = async function (fastify, opts) {
 
   fastify.post("/analyzeWhatsapp", async (req, reply) => {
     logger.info("Received /analyzeWhatsapp request");
-    try {
       const data = await req.file();
       const { time, prompt } = data.fields;
 
@@ -156,15 +155,12 @@ JSON Array Format:
       const jsonEnd = jsonString.lastIndexOf("]") + 1;
       jsonString = jsonString.substring(jsonStart, jsonEnd);
 //
+
+      logger.info("jsonString pre-parse:");
+      logger.info(jsonString);
       let analysisResults;
-      try {
         analysisResults = JSON.parse(jsonString);
         logger.info("AI response parsed successfully");
-      } catch (parseError) {
-        logger.error("JSON Parsing Error:", parseError);
-        logger.error("Sanitized AI Response:", jsonString);
-        throw new Error("Failed to parse AI response as JSON.");
-      }
 
       // Enforce context message limits
       const MAX_CONTEXT_MESSAGES = 10;
@@ -198,10 +194,5 @@ JSON Array Format:
 
       // Send response
       reply.send(analysisResults);
-    } catch (error) {
-      logger.error("Error in /analyzeWhatsapp:", error);
-      logger.error("Error Details:", JSON.stringify(error, Object.getOwnPropertyNames(error), 2));
-      reply.internalServerError("An error occurred during analysis.");
-    }
   });
 };
