@@ -183,7 +183,7 @@ JSON Array Format:
       logger.info("Temporary file deleted");
 
       // Clear all files in ../uploads
-      const directory = path.join(__dirname, "../uploads");
+      const directory = path.join(__dirname, "./uploads");
       fs.readdir(directory, (err, files) => {
         if (err) throw err;
 

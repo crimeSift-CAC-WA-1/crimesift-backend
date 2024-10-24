@@ -20,7 +20,7 @@ async function start() {
     });
 
     // Start the server
-    await fastify.listen({ port: process.env.PORT || 3000, host: '0.0.0.0' });
+    await fastify.listen({ port: process.env.PORT || 3010, host: '0.0.0.0' });
     console.log(`Server listening on ${fastify.server.address().port}`);
   } catch (err) {
     fastify.log.error(err);
