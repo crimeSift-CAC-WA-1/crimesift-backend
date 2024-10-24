@@ -120,6 +120,7 @@ JSON Array Format:
 **Remember:**
 
 - Do **NOT** include any Markdown formatting, code fences (like \`\`\`), or additional explanations.
+- I AM ITTERATING AGAIN DO **NOT** INCLUDE ANY CODE FENCES, HEADERS, FOOTERS, OR ANY ADDITIONAL TEXT EXECPT FOR WHAT IS ASKED FROM YOU ABOVE
 - **ONLY OUTPUT THE JSON ARRAY.**
 `;
 
