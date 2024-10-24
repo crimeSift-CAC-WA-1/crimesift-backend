@@ -155,7 +155,7 @@ JSON Array Format:
       const jsonStart = jsonString.indexOf("[");
       const jsonEnd = jsonString.lastIndexOf("]") + 1;
       jsonString = jsonString.substring(jsonStart, jsonEnd);
-
+//
       let analysisResults;
       try {
         analysisResults = JSON.parse(jsonString);
