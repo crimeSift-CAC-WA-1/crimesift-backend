@@ -5,17 +5,18 @@ CrimeSift is a backend application built using Node.js and Fastify. It provides 
 
 ## 📚 Table of Contents
 
-- 📥 Installation
-- ⚙️ Configuration
-- 🚀 [Running the Application](#running-the-application)
-- 🌐 [API Endpoints](#api-endpoints)
-    - 📸 [Analyze Instagram Chat](#analyze-instagram-chat)
-    - 📱 [Analyze WhatsApp Chat](#analyze-whatsapp-chat)
-- 🗂️ [Project Structure](#project-structure)
-- 🔧 Utilities
-- 📜 License
-- 🌐 [Frontend Setup](#frontend-setup)
-- 📝 [Project Overview](#project-overview)
+- [📥 Installation](#-installation)
+- [⚙️ Configuration](#%EF%B8%8F-configuration)
+- [🚀 Running the Application](#-running-the-application)
+- [🌐 API Endpoints](#-api-endpoints)
+    - [📸 Analyze Instagram Chat](#-analyze-instagram-chat)
+    - [📱 Analyze WhatsApp Chat](#-analyze-whatsapp-chat)
+- [🗂️ Project Structure](#%EF%B8%8F-project-structure)
+- [🔧 Utilities](#-utilities)
+- [📜 License](#-license)
+- [🌐 Frontend Setup](#-frontend-setup)
+- [📝 Project Overview](#-project-overview)
+
 
 ## 📥 Installation
 
