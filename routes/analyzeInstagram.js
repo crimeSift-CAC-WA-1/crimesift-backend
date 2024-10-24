@@ -25,7 +25,7 @@ module.exports = async function (fastify, opts) {
       logger.debug(`Timestamp: ${timestamp}, Prompt: ${userPrompt}`);
 
       // Save uploaded file temporarily
-      const uploadDir = path.join(__dirname, "../uploads");
+      const uploadDir = path.join(__dirname, "./uploads");
       if (!fs.existsSync(uploadDir)) {
         fs.mkdirSync(uploadDir);
       }

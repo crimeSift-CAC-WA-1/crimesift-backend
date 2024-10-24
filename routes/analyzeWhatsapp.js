@@ -27,7 +27,7 @@ module.exports = async function (fastify, opts) {
       // Save uploaded file temporarily
       const chatFilePath = path.join(
         __dirname,
-        `../uploads/${Date.now()}_${data.filename}`
+        `./uploads/${Date.now()}_${data.filename}`
       );
       const writeStream = fs.createWriteStream(chatFilePath);
 
