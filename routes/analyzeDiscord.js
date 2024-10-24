@@ -1,4 +1,4 @@
-// routes/analyzeDiscord.js
+// routes/analyzeInstagram.js
 "use strict";
 
 const fs = require("fs");
@@ -10,7 +10,7 @@ module.exports = async function (fastify, opts) {
   fastify.register(require("@fastify/multipart"));
 
   fastify.post("/analyzeDiscord", async (req, reply) => {
-    logger.info("Received /analyzeDiscord request");
+    logger.info("Received /analyzeInstagram request");
     try {
       const data = await req.file();
       const { time, prompt } = data.fields;
@@ -47,9 +47,7 @@ module.exports = async function (fastify, opts) {
       const chatData = fs.readFileSync(originalFilePath, "utf-8");
       logger.debug(`Chat data length: ${chatData.length}`);
 
-      // Convert chat data to a format suitable for the AI model
-      // Assuming the Discord chat data is in JSON format
-      // Wrap the JSON content in <content> tags
+      // Convert JSON content to string and wrap it as per your suggestion
       const wrappedContent = `<content>\n${chatData}\n</content>`;
       logger.debug(`Wrapped content length: ${wrappedContent.length}`);
 
@@ -63,67 +61,66 @@ module.exports = async function (fastify, opts) {
 
       // Prepare AI prompt
       const systemInstruction = `
-You are a professional detective's assistant. You will be given Discord chat data in a text file containing JSON content wrapped within <content> tags.
+You are a professional detective's assistant. You will be given Instagram chat data in a text file containing JSON content.
 
 Your task is to analyze the chat data based on the following prompt:
 
 "${userPrompt}"
 
-**IMPORTANT INSTRUCTIONS:**
+IMPORTANT INSTRUCTIONS:
 
-- **ONLY OUTPUT THE JSON ARRAY** containing your findings based on the analysis of the provided chat data.
-- Do **NOT** include any sample data, code fences, headers, footers, explanations, or any additional text.
-- **Do NOT include any of the sample data provided below in your output.**
+- **ONLY OUTPUT THE JSON ARRAY** as specified below.
+- Do **NOT** include any code fences, headers, footers, explanations, or any additional text.
 - **Limit the number of messages in "context-before" and "context-after" to between 3 and 10 messages each.**
-- **The MAXIMUM NUMBER OF INSTANCES YOU ARE ALLOWED TO LIST IS 10.**
+- **YOUR MAXIMUM INSTANCES YOU ARE ALLOWED TO LIST IS 10**
 - Ensure that your response is **valid JSON** and follows the exact structure provided.
-- If a message has an attachment (e.g., image, file), describe the attachment in the "message" field.
+- If the message has an attacment then just describe the attachment (if the attachment has a caption then display the caption too)
 
-**Output Format (Do NOT include this in your output, it's for reference only):**
+JSON Array Format:
 
 [
   {
     "instance_ID": 1,
     "context-before": [
-      // Up to 10 messages before the flagged instance
+      // Include up to 5 messages before the flagged instance
       {
-        "time": timestamp,
+        "time": 1729284750,
         "author": "username",
-        "message": "message content"
+        "message": "message"
       }
-      // ... up to 10 messages
+      // ... up to 5 messages
     ],
     "flagged": [
-      // The message that meets the criteria specified in the user prompt
+      // Messages that meet the criteria specified in the user prompt
       {
-        "time": timestamp,
+        "time": 1729284750,
         "author": "username",
-        "message": "message content"
+        "message": "message"
       },
       // ONLY ONE FLAGGED MESSAGE
       {
-        "time": 0,
+        "time": 0000000,
         "author": "AI-ANALYZER",
-        "message": "Explanation of why this message is flagged"
+        "message": "why this message is flagged"
       }
     ],
     "context-after": [
-      // Up to 10 messages after the flagged instance
+      // Include up to 5 messages after the flagged instance
       {
-        "time": timestamp,
+        "time": 1729284750,
         "author": "username",
-        "message": "message content"
+        "message": "message"
       }
-      // ... up to 10 messages
+      // ... up to 5 messages
     ]
   }
-  // ... up to 10 instances
+  // ... more instances
 ]
 
 **Remember:**
 
-- Do **NOT** include any sample data in your output.
-- **ONLY OUTPUT THE JSON ARRAY** containing your findings.
+- Do **NOT** include any Markdown formatting, code fences (like \`\`\`), or additional explanations.
+- **ONLY OUTPUT THE JSON ARRAY.**
 `;
 
       const model = getAIModel(systemInstruction);
@@ -133,7 +130,7 @@ Your task is to analyze the chat data based on the following prompt:
       const uploadedFile = await uploadFileToAI(
         txtFilePath,
         "text/plain",
-        "Discord Chat Data"
+        "Instagram Chat Data"
       );
       logger.info(`File uploaded to AI: ${uploadedFile.uri}`);
 
@@ -203,10 +200,22 @@ Your task is to analyze the chat data based on the following prompt:
       fs.unlinkSync(txtFilePath);
       logger.info("Temporary files deleted");
 
+      // Clear all files in ../uploads
+      const directory = path.join(__dirname, "../uploads");
+      fs.readdir(directory, (err, files) => {
+        if (err) throw err;
+
+        for (const file of files) {
+          fs.unlink(path.join(directory, file), (err) => {
+            if (err) throw err;
+          });
+        }
+      });
+
       // Send response
       reply.send(analysisResults);
     } catch (error) {
-      logger.error("Error in /analyzeDiscord:", error);
+      logger.error("Error in /analyzeInstagram:", error);
       logger.error(
         "Error Details:",
         JSON.stringify(error, Object.getOwnPropertyNames(error), 2)
